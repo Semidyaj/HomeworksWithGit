@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    //private const string BallTag = "Ball";
     private const string GroundTag = "Ground";
 
     public bool IsGround { get; private set; }
