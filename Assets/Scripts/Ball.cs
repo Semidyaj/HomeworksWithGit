@@ -12,7 +12,6 @@ public class Ball : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private float _speed;
-    [SerializeField] private float _force;
     [SerializeField] private float _jumpForce;
 
     private Rigidbody _rigidbody;
@@ -33,7 +32,7 @@ public class Ball : MonoBehaviour
     {
         Vector3 moveDirection = GetCameraDirection();
 
-        _rigidbody.AddForce(moveDirection * _speed * _force);
+        _rigidbody.AddForce(moveDirection * _speed);
 
         if (_isJump)
         {

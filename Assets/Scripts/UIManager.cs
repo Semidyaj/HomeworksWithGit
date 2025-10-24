@@ -3,28 +3,30 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Candy _candy;
+    [SerializeField] private RemainingCandiesCounter _remainingCandiesCounter;
+    [SerializeField] private Preferences _preferences;
 
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private TextMeshProUGUI _remainingCandiesText;
-    [SerializeField] private float _timerToGameOver;
+
+    public float TimeToGameOverUI { get; private set; }
 
     public bool IsTimerEnd { get; private set; }
 
-    private void Update()
+    private void Awake()
     {
-        if (_timerToGameOver > 0)
-            _timerToGameOver -= Time.deltaTime;
-
-        _timerText.text = _timerToGameOver.ToString("00.00");
-        _remainingCandiesText.text = _candy.CountOfRemainingCandies.ToString();
-
-        CheckGameOver();
+        TimeToGameOverUI = _preferences.TimeToGameOver;
     }
 
-    private void CheckGameOver()
+    private void Update()
     {
-        if (_timerToGameOver == 0)
+        if (TimeToGameOverUI > 0)
+            TimeToGameOverUI -= Time.deltaTime;
+
+        if (TimeToGameOverUI < 0)
             IsTimerEnd = true;
+
+        _timerText.text = TimeToGameOverUI.ToString("00.00");
+        _remainingCandiesText.text = _remainingCandiesCounter.CountOfRemainingCandies.ToString();
     }
 }

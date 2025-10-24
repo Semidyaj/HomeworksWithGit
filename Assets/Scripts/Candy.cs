@@ -5,9 +5,7 @@ public class Candy : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _disappearanceEffect;
 
-    [SerializeField] private int _countOfRemainingCandies;
-
-    public int CountOfRemainingCandies => _countOfRemainingCandies;
+    public bool IsTaken { get; private set; }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +13,9 @@ public class Candy : MonoBehaviour
 
         gameObject.SetActive(false);
 
-        _countOfRemainingCandies--;
+        IsTaken = true;
         _disappearanceEffect.Play();
     }
+
+    public void DoIsTakenFalse() => IsTaken = false;
 }
