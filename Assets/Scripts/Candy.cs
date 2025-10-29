@@ -4,6 +4,7 @@ using UnityEngine;
 public class Candy : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _disappearanceEffect;
+    [SerializeField] private ParticleSystem _rotateEffect;
 
     public bool IsTaken { get; private set; }
 
@@ -15,6 +16,7 @@ public class Candy : MonoBehaviour
 
         IsTaken = true;
         _disappearanceEffect.Play();
+        _rotateEffect.Stop();
     }
 
     public void DoIsTakenFalse() => IsTaken = false;

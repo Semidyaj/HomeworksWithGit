@@ -17,6 +17,8 @@ public class Ball : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool _isJump;
 
+    public Vector3 StartPosition { get; } = new Vector3(0, 2.5f, 0);
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();

@@ -29,4 +29,10 @@ public class UIManager : MonoBehaviour
         _timerText.text = TimeToGameOverUI.ToString("00.00");
         _remainingCandiesText.text = _remainingCandiesCounter.CountOfRemainingCandies.ToString();
     }
+
+    public void ResetTimeForRestart()
+    {
+        TimeToGameOverUI = _preferences.TimeToGameOver;
+        IsTimerEnd = false;
+    }
 }
