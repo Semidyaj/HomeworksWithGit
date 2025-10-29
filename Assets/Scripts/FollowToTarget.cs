@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class FollowToTarget : MonoBehaviour
 {
+    private const string AxisX = "Mouse X";
+
     [SerializeField] private Transform _target;
     [SerializeField] private Vector3 _offset;
     [SerializeField] private float _sensitivity = 200f;
@@ -16,7 +18,7 @@ public class FollowToTarget : MonoBehaviour
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _sensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis(AxisX) * _sensitivity * Time.deltaTime;
         _rotationAngleY += mouseX;
 
         Quaternion rotation = Quaternion.Euler(0f, _rotationAngleY, 0f);

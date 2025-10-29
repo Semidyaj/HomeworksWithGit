@@ -19,5 +19,5 @@ public class Candy : MonoBehaviour
         _rotateEffect.Stop();
     }
 
-    public void DoIsTakenFalse() => IsTaken = false;
+    public void IsTakenFalse() => IsTaken = false;
 }

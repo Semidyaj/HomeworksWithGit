@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
             IsTimerEnd = true;
 
         _timerText.text = TimeToGameOverUI.ToString("00.00");
-        _remainingCandiesText.text = _remainingCandiesCounter.CountOfRemainingCandies.ToString();
+        _remainingCandiesText.text = _remainingCandiesCounter.Count.ToString();
     }
 
     public void ResetTimeForRestart()
