@@ -2,18 +2,12 @@ using UnityEngine;
 
 namespace DZ_8
 {
-    [RequireComponent(typeof(Player))]
     public class PlayerInput : MonoBehaviour
     {
         private const string HorizontalAxis = "Horizontal";
         private const string VerticalAxis = "Vertical";
 
-        private Player _player;
-
-        private void Awake()
-        {
-            _player = GetComponent<Player>();
-        }
+        [SerializeField] private Player _player;
 
         private void Update()
         {

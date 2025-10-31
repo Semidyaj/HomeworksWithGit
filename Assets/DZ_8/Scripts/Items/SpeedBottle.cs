@@ -4,11 +4,16 @@ namespace DZ_8
 {
     public class SpeedBottle : Item
     {
-        [SerializeField] private Player _player;
-
         [SerializeField] private int _additiveSpeed;
 
-        public override void UseItem()
+        private Player _player;
+
+        private void Awake()
+        {
+            _player = FindObjectOfType<Player>();
+        }
+
+        public override void Use()
         {
             _player.AddSpeed(_additiveSpeed);
 

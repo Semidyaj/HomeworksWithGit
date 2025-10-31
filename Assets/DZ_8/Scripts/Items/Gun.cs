@@ -1,11 +1,24 @@
 using UnityEngine;
 
-public class Gun : Item
+namespace DZ_8
 {
-    [SerializeField] private Player _player;
-
-    public override void UseItem()
+    public class Gun : Item
     {
-        throw new System.NotImplementedException();
+        [SerializeField] private float _bulletSpeed;
+        [SerializeField] private float _bulletTimeAlive;
+        [SerializeField] private Bullet _bullet;
+
+        private void Awake()
+        {
+            _bullet = GetComponent<Bullet>();
+        }
+
+        public override void Use()
+        {
+            _bulletTimeAlive += Time.deltaTime;
+
+            while (_bulletTimeAlive < 5f)
+                _bullet.transform.position += transform.forward * _bulletSpeed * Time.deltaTime;
+        }
     }
 }

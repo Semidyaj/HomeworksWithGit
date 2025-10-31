@@ -1,30 +1,25 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace DZ_8
 {
-    [SerializeField] private Item _item;
-
-    [SerializeField] private int _health;
-    [SerializeField] private float _speed;
-
-    public int Health => _health;
-    public float Speed => _speed;
-
-    private void Update()
+    public class Player : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.F))
-            _item.UseItem();
-    }
+        [SerializeField] private int _health;
+        [SerializeField] private float _speed;
 
-    public void AddHealthPoints(int additiveHealth)
-    {
-        if(additiveHealth >= 0)
-            _health += additiveHealth;
-    }
+        public int Health => _health;
+        public float Speed => _speed;
 
-    public void AddSpeed(float additiveSpeed)
-    {
-        if (additiveSpeed >= 0)
-            _speed += additiveSpeed;
+        public void AddHealthPoints(int additiveHealth)
+        {
+            if (additiveHealth >= 0)
+                _health += additiveHealth;
+        }
+
+        public void AddSpeed(float additiveSpeed)
+        {
+            if (additiveSpeed >= 0)
+                _speed += additiveSpeed;
+        }
     }
 }

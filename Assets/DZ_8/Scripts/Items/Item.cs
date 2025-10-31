@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+namespace DZ_8
 {
-    public abstract void UseItem();
+    public abstract class Item : MonoBehaviour
+    {
+        public abstract void Use();
+    }
 }
