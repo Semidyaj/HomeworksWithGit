@@ -5,6 +5,8 @@ namespace DZ_8
     public class UsingItemsController : MonoBehaviour
     {
         [SerializeField] private Transform _parentObject;
+        [SerializeField] private ParticleSystem _explosionEffect;
+
         private Item _item;
 
         private bool _isEmptyHands = true;
@@ -39,9 +41,17 @@ namespace DZ_8
         {
             _item.Use();
 
+            PlayExplosionEffect();
             Destroy(_item.gameObject);
 
             _isEmptyHands = true;
+        }
+
+        private void PlayExplosionEffect()
+        {
+            _explosionEffect.gameObject.SetActive(true);
+            _explosionEffect.transform.position = _parentObject.position;
+            _explosionEffect.Play();
         }
     }
 }
